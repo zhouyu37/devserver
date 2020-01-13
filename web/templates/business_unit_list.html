@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+    <div>
+        <a class="btn btn-primary" href="/business/unit/add/">add</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>business name</th>
+                <th>operate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in queryset %}
+                <tr>
+                    <td>{{ row.name }}</td>
+                    <td>
+                        <a>edit</a>
+                        <a>delele</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+ {% endblock %}

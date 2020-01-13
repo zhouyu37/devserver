@@ -16,9 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from api import views
+from web import views as webviews
+from app01 import views as app01views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', views.server_info),
     url(r'^server/', views.server.as_view()),
+    url(r'^business/unit/list/', webviews.business_unit_list),
+    url(r'^business/unit/add/', webviews.business_unit_add),
+    url(r'^test/', app01views.test.as_view()),
+    url(r'^courses/$', app01views.CourseView.as_view({"get":"list","post":"create"})),
+    url(r'^courses/detail/$', app01views.CourseDetailView.as_view({"get": "list"})),
+    url(r'^login/$', views.LoginView.as_view()),
 ]
